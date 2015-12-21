@@ -1,0 +1,156 @@
+﻿#profile .preferences .preference-value {
+    background-color: #CCCCCC;
+    border-radius: 4px;
+}
+
+    #profile .preferences .preference-value:hover {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+#profile .preferences-body .error {
+    color: red;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
+
+#profile .preferences {
+    background: #f96e5b;
+}
+
+    #profile .preferences ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        display: block;
+        zoom: 1;
+        font-size: 0;
+    }
+
+        #profile .preferences ul:after {
+            content: " ";
+            display: block;
+            font-size: 0;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        #profile .preferences ul li {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
+
+    #profile .preferences.align-right ul li {
+        float: right;
+    }
+
+    #profile .preferences.align-center ul {
+        text-align: center;
+        font-size: 0;
+    }
+
+    #profile .preferences ul li a {
+        color: #ffffff;
+        text-decoration: none;
+        display: block;
+        padding: 15px 25px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 14px;
+        position: relative;
+        -webkit-transition: color .25s;
+        -moz-transition: color .25s;
+        -ms-transition: color .25s;
+        -o-transition: color .25s;
+        transition: color .25s;
+    }
+
+        #profile .preferences ul li a:hover {
+            color: #333333;
+        }
+
+            #profile .preferences ul li a:hover:before {
+                width: 100%;
+            }
+
+        #profile .preferences ul li a:after {
+            content: "";
+            display: block;
+            position: absolute;
+            right: -3px;
+            top: 19px;
+            height: 6px;
+            width: 6px;
+            background: #ffffff;
+            opacity: .5;
+        }
+
+        #profile .preferences ul li a:before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 0;
+            background: #333333;
+            -webkit-transition: width .25s;
+            -moz-transition: width .25s;
+            -ms-transition: width .25s;
+            -o-transition: width .25s;
+            transition: width .25s;
+        }
+
+    #profile .preferences ul li.last > a:after,
+    #profile .preferences ul li:last-child > a:after {
+        display: none;
+    }
+
+    #profile .preferences ul li.active a {
+        color: #333333;
+    }
+
+        #profile .preferences ul li.active a:before {
+            width: 100%;
+        }
+
+    #profile .preferences.align-right li.last > a:after,
+    #profile .preferences.align-right li:last-child > a:after {
+        display: block;
+    }
+
+    #profile .preferences.align-right li:first-child a:after {
+        display: none;
+    }
+
+@media screen and (max-width: 768px) {
+    #profile .preferences ul li {
+        float: none;
+        display: block;
+    }
+
+        #profile .preferences ul li a {
+            width: 100%;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border-bottom: 1px solid #fb998c;
+        }
+
+        #profile .preferences ul li.last > a,
+        #profile .preferences ul li:last-child > a {
+            border: 0;
+        }
+
+        #profile .preferences ul li a:after {
+            display: none;
+        }
+
+        #profile .preferences ul li a:before {
+            display: none;
+        }
+}

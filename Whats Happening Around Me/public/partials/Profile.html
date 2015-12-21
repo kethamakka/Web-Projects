@@ -1,0 +1,80 @@
+﻿<div id="profile" ng-init="init()">
+    <nav class="top-navigation">
+
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="" ng-click="goToHome()">
+                    <span id="logo">Wham</span>
+                </a>
+            </div>
+        </div>
+
+        <div ng-show="userProfile != null">
+            <button ng-class="{'userBtn':userProfile != null}"
+                    ng-click="setProfileOptionsToggle()">
+                {{userProfile.firstname}}
+            </button>
+            <br />
+            <div class="profileOptions"
+                 ng-show="userProfile != null && profileOptionsToggle">
+                <p class="center">{{userProfile.email}}</p>
+                <hr />
+
+                <button type="button"
+                        class="floatRight btn btn-default"
+                        ng-click="logout()" >
+                    Logout
+                    </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <div >
+
+     
+
+        <div id="profile-container" class="container">
+            <div class="col-sm-3 options">
+                <div class="content">
+                    <div class="side-tabs">
+                        <ul>
+                            <li ng-class="{'tab':true,'option':true, 'block-element':true ,'active' : activeTabIndex == 0}">
+                                <a role="tab" data-toggle="tab" class="tab-button" ng-click="openTab(0)">
+                                    User Info
+                                </a>
+                            </li>
+                            <li ng-class="{'tab':true,'option':true, 'block-element':true ,'active' : activeTabIndex == 1}">
+                                <a role="tab" data-toggle="tab" class="tab-button" ng-click="openTab(1)">
+                                    History
+                                </a>
+                            </li>
+                            <li ng-class="{'tab':true,'option':true, 'block-element':true ,'active' : activeTabIndex == 2}">
+                                <a role="tab" data-toggle="tab" class="tab-button" ng-click="openTab(2)">
+                                    Preferences
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-9 content">
+                <div ng-show="activeTabIndex == 0">
+                    <div ng-include="'/partials/Profile-UserInfo.html'"></div>
+                </div>
+
+                <div ng-show="activeTabIndex == 1">
+                    <div ng-include="'/partials/Profile-History.html'"></div>
+                </div>
+
+                <div ng-show="activeTabIndex == 2">
+                    <div ng-include="'/partials/Profile-Preferences.html'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

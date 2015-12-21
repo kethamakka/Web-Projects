@@ -1,0 +1,164 @@
+﻿<div id="Login">
+
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="" ng-click="goToHome()">
+                    <span id="logo">Wham</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="col-sm-7">
+            <div class="register-form">
+
+                <h2>Register</h2>
+                <br />
+
+                <label>First Name</label>
+                <span class="error">{{register.errors.first}}</span>
+                <input type="text"
+                       class="form-control"
+                       ng-model="register.first"
+                       placeholder="First Name"
+                       ng-change="validateRegisterFirst()"
+                       ng-focus="validateRegisterFirst()" />
+                <br />
+
+                <label>Last Name</label>
+                <span class="error">{{register.errors.last}}</span>
+                <input type="text"
+                       class="form-control"
+                       ng-model="register.last"
+                       placeholder="Last Name"
+                       ng-change="validateRegisterLast()"
+                       ng-focus="validateRegisterLast()" />
+                <br />
+
+                <label>Email</label>
+                <span class="error">{{register.errors.email}}</span>
+                <input type="text"
+                       class="form-control"
+                       ng-model="register.email"
+                       placeholder="Email Address"
+                       ng-change="validateRegisterEmail()"
+                       ng-focus="validateRegisterEmail()"
+                       ng-blur="checkIfUserExist()" />
+                <br />
+
+                <label>Password</label>
+                <span class="error">{{register.errors.password}}</span>
+                <input type="password"
+                       class="form-control"
+                       ng-model="register.password"
+                       placeholder="Password"
+                       ng-change="validateRegisterPassword()"
+                       ng-focus="validateRegisterPassword()" />
+                <br />
+
+                <label>Confirm Password</label>
+                <span class="error">{{register.errors.confirmPassword}}</span>
+                <input type="password"
+                       class="form-control"
+                       ng-model="register.confirmPassword"
+                       placeholder="Confirm Password"
+                       ng-change="validateRegisterConfirmPassword()"
+                       ng-focus="validateRegisterConfirmPassword()" />
+                <br />
+
+                <label>Referal Code</label>
+                <input type="text"
+                       class="form-control"
+                       ng-model="register.referal"
+                       placeholder="Referal Code" />
+                <br />
+
+                <input type="button"
+                       class="btn btn-default btn-primary"
+                       value="Register"
+                       ng-click="registerUser()" />
+                <br />
+            </div>
+
+        </div>
+
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-4">
+            <div class="login-form panel panel-primary" ng-show="!showForgotPassword">
+                <div class="panel-heading">
+                    Sign in
+                </div>
+                <div class="panel-body">
+
+                    <label>Email</label>
+                    <span class="error">{{login.errors.email}}</span>
+                    <input type="text"
+                           class="form-control"
+                           ng-model="login.email"
+                           placeholder="Email Address"
+                           ng-change="validateLoginEmail()"
+                           ng-focus="validateLoginEmail()"
+                           ng-enter="loginUser()" />
+                    <br />
+
+                    <label>Password</label>
+                    <span class="error">{{login.errors.password}}</span>
+                    <input type="password"
+                           class="form-control"
+                           ng-model="login.password"
+                           placeholder="Password"
+                           ng-change="validateLoginPassword()"
+                           ng-focus="validateLoginPassword()"
+                           ng-enter="loginUser()" />
+                    <br />
+                    <div ng-show="login.errors.authentication">
+                        <span class="authentication-error">{{login.errors.authentication}}</span>
+                        <br />
+                        <br />
+                    </div>
+
+                    <input type="button"
+                           class="btn btn-default btn-primary"
+                           value="Sign in"
+                           ng-click="loginUser()" />
+
+                    <a href="" class="float-right" ng-click="toggleForgotPassword()">Forgot Password?</a>
+                    <br />
+                </div>
+            </div>
+
+            <div class="forgot-password-form panel panel-primary" ng-show="showForgotPassword">
+                <div class="panel-heading">
+                    Forgot Password
+                </div>
+                <div class="panel-body">
+
+                    <label>Email</label>
+                    <span class="error">{{forgotPassword.errors.email}}</span>
+                    <input type="text"
+                           class="form-control"
+                           ng-model="forgotPassword.email"
+                           placeholder="Email Address"
+                           ng-change="validateForgotPasswordEmail()"
+                           ng-focus="validateForgotPasswordEmail()" />
+                    <br />
+
+                    <input type="button"
+                           class="btn btn-default btn-primary"
+                           value="Send password to my email"
+                           ng-click="sendPasswordToEmail()" />
+                    <a href="" class="float-right" ng-click="toggleForgotPassword()">Sign in</a>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        Copyright © 2015. All rights reserved.
+    </footer>
+</div>

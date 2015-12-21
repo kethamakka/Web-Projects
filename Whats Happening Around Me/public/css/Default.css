@@ -1,0 +1,15 @@
+﻿html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#logo {
+    font-weight: 900;
+}
+
+
+#spinner{
+    position:relative;
+    z-index:100;
+}

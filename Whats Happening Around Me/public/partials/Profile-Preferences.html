@@ -1,0 +1,72 @@
+﻿<link rel="stylesheet" href="css/Profile-Preferences.css" />
+
+<nav class="preferences">
+    <ul>
+        <li ng-class="{active:activeSubTabIndex==0}">
+            <a href="" ng-click="openSubTab(0)"><span>Single</span></a>
+        </li>
+        <li ng-class="{active:activeSubTabIndex==1}">
+            <a href="" ng-click="openSubTab(1)"><span>Family</span></a>
+        </li>
+        <li ng-class="{active:activeSubTabIndex==2}">
+            <a href="" ng-click="openSubTab(2)"><span>Friends</span></a>
+        </li>
+        <li ng-class="{active:activeSubTabIndex==3}" class="last">
+            <a href="" ng-click="openSubTab(3)"><span>Date</span></a>
+        </li>
+    </ul>
+</nav>
+<br />
+<div class="preferences-body">
+    <div class="row new">
+
+        <label>Event Category</label>
+        <span class="error pull-right">{{newPreference.errors.type}}</span>
+        <!--<input type="text" class="form-control" ng-model="newPreference.type" />-->
+
+        <div class="input-group ">
+            <div class="input-group-addon"><span class="glyphicon glyphicon-glass"></span></div>
+            <select class="form-control" ng-model="newPreference.type">
+                <option ng-repeat="type in types track by $index">{{type}}</option>
+            </select>
+        </div>
+
+        <br />
+
+        <label>Keywords</label><br />
+        <div class="input-group ">
+            <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+            <textarea class="form-control" ng-model="newPreference.keywords" />
+        </div>
+
+        <br />
+        <div class="col-xs-6">
+            <button class="form-control btn btn-success " ng-click="addPreference()">
+                <span class="glyphicon glyphicon-ok"> Save</span>
+            </button>
+        </div>
+        <div class="col-xs-6">
+            <button class="form-control btn btn-success" ng-click="clearNewPreferenceField()">
+                <span class="glyphicon glyphicon-erase"> Clear</span>
+            </button>
+        </div>
+    </div>
+    <br />
+    <div class="row saved">
+
+        <div class="preference-value" ng-repeat="pref in userProfile.preferences[activeSubTabIndex] track by $index">
+            <label>Type</label>
+            <button class="pull-right btn btn-success" ng-click="updatePreference($index)">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+            <button class="pull-right btn btn-danger" ng-click="removePreference($index)">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+            <br />
+            <p>{{pref.type}}</p>
+            <label>Keywords</label><br />
+            <p>{{pref.keywords}}</p>
+            <hr />
+        </div>
+    </div>
+</div>

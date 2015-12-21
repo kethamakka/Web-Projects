@@ -1,0 +1,157 @@
+﻿
+#profile .userInfo {
+}
+
+    #profile .userInfo .error {
+        color: red;
+        float: right;
+    }
+
+    #profile .userInfo .float-right {
+        float: right;
+    }
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
+
+#profile .userInfo nav  {
+    background: #f96e5b;
+}
+
+    #profile .userInfo nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        display: block;
+        zoom: 1;
+        font-size: 0;
+    }
+
+        #profile .userInfo nav ul:after {
+            content: " ";
+            display: block;
+            font-size: 0;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        #profile .userInfo nav ul li {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
+
+    #profile .userInfo nav.align-right ul li {
+        float: right;
+    }
+
+    #profile .userInfo nav.align-center ul {
+        text-align: center;
+        font-size: 0;
+    }
+
+    #profile .userInfo nav ul li a {
+        color: #ffffff;
+        text-decoration: none;
+        display: block;
+        padding: 15px 25px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 14px;
+        position: relative;
+        -webkit-transition: color .25s;
+        -moz-transition: color .25s;
+        -ms-transition: color .25s;
+        -o-transition: color .25s;
+        transition: color .25s;
+    }
+
+        #profile .userInfo nav ul li a:hover {
+            color: #333333;
+        }
+
+            #profile .userInfo nav ul li a:hover:before {
+                width: 100%;
+            }
+
+        #profile .userInfo nav ul li a:after {
+            content: "";
+            display: block;
+            position: absolute;
+            right: -3px;
+            top: 19px;
+            height: 6px;
+            width: 6px;
+            background: #ffffff;
+            opacity: .5;
+        }
+
+        #profile .userInfo nav ul li a:before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 0;
+            background: #333333;
+            -webkit-transition: width .25s;
+            -moz-transition: width .25s;
+            -ms-transition: width .25s;
+            -o-transition: width .25s;
+            transition: width .25s;
+        }
+
+    #profile .userInfo nav ul li.last > a:after,
+    #profile .userInfo nav ul li:last-child > a:after {
+        display: none;
+    }
+
+    #profile .userInfo nav ul li.active a {
+        color: #333333;
+    }
+
+        #profile .userInfo nav ul li.active a:before {
+            width: 100%;
+        }
+
+    #profile .userInfo nav.align-right li.last > a:after,
+    #profile .userInfo nav.align-right li:last-child > a:after {
+        display: block;
+    }
+
+    #profile .userInfo nav.align-right li:first-child a:after {
+        display: none;
+    }
+
+@media screen and (max-width: 768px) {
+    #profile .userInfo nav ul li {
+        float: none;
+        display: block;
+    }
+
+        #profile .userInfo nav ul li a {
+            width: 100%;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border-bottom: 1px solid #fb998c;
+        }
+
+        #profile .userInfo nav ul li.last > a,
+        #profile .userInfo nav ul li:last-child > a {
+            border: 0;
+        }
+
+        #profile .userInfo nav ul li a:after {
+            display: none;
+        }
+
+        #profile .userInfo nav ul li a:before {
+            display: none;
+        }
+}

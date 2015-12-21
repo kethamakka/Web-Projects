@@ -1,0 +1,46 @@
+﻿<link rel="stylesheet" href="css/Profile-History.css" />
+<div class="history">
+    
+    <nav>
+        <ul>
+            <li ng-class="{active:activeSubTabIndex==0}">
+                <a href="" ng-click="openSubTab(0)"><span>Calender</span></a>
+            </li>
+            <li ng-class="{active:activeSubTabIndex==1}">
+                <a href="" ng-click="openSubTab(1)"><span>Likes / Dislikes</span></a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div ng-show="activeSubTabIndex == 0">
+        <div ng-show="loading"><center><img src='../img/squares.gif' ng-show='loading' id='spinner'></center></div>
+        <div ng-repeat="eventData in history track by $index">
+            <button class="btn-danger float-right" ng-click="deleteHistory($index)">X</button>
+            <h3>{{eventData.title}}</h3>
+            <div class="float-right">
+                <a href="" ng-click="rateVenueOfHistory($index,true)" ng-class="{'selected':eventData.rating===true}">Like</a>
+                <a href="" ng-click="rateVenueOfHistory($index,false)" ng-class="{'selected':eventData.rating===false}">Dislike</a>
+            </div>
+
+            <p>{{eventData.venueName}}</p>
+            <p>{{eventData.venueAddress}}</p>
+
+            <p>{{eventData.date}}</p>
+            <hr />
+        </div>
+    </div>
+
+    <div ng-show="activeSubTabIndex == 1">
+        <div class="" ng-repeat="venueData in ratings">
+            <h3>{{venueData.venueName}}</h3>
+            <div class="float-right">
+                <a href="" ng-click="rateVenue($index,true)" ng-class="{'selected':venueData.rating===true}">Like</a>
+                <a href="" ng-click="rateVenue($index,false)" ng-class="{'selected':venueData.rating===false}">Dislike</a>
+            </div>
+            <p>{{venueData.venueAddress}}</p>
+            <hr />
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,70 @@
+﻿<link rel="stylesheet" href="css/Profile-UserInfo.css" />
+<div class="userInfo">
+
+    <nav>
+        <ul>
+            <li ng-class="{active:activeSubTabIndex==0}">
+                <a href="" ng-click="openSubTab(0)"><span>Basic Information</span></a>
+            </li>
+            <li ng-class="{active:activeSubTabIndex==1}">
+                <a href="" ng-click="openSubTab(1)"><span>Change Password</span></a>
+            </li>
+        </ul>
+    </nav>
+
+    <div>
+        <br />
+        <!-- ****************************************************Basic Information********************************* -->
+        <div ng-show="activeSubTabIndex == 0">
+
+            <p>
+                Name: {{userProfile.firstname}} {{userProfile.lastname}}
+                <span class="floatRight">Points: {{userProfile.rewardPoints}}</span>
+            </p>
+            <p>Email: {{userProfile.email}}</p>
+            <p>Your Referal code: {{userProfile.referalCode}}</p>
+
+        </div>
+
+
+        <!-- ****************************************************Change Password********************************* -->
+        <div ng-show="activeSubTabIndex == 1">
+            <label>Old Password</label>
+            <span class="error">{{editPassword.errors.oldPassword}}</span>
+            <input type="password"
+                   class="form-control"
+                   ng-model="editPassword.oldPassword"
+                   placeholder="enter old password"
+                   ng-change="validateOldPassword()"
+                   ng-focus="validateOldPassword()" />
+            <br />
+
+            <label>New Password</label>
+            <span class="error">{{editPassword.errors.newPassword}}</span>
+            <input type="password"
+                   class="form-control"
+                   ng-model="editPassword.newPassword"
+                   placeholder="enter new password"
+                   ng-change="validateNewPassword()"
+                   ng-focus="validateNewPassword()" />
+            <br />
+
+            <label>Confirm Password</label>
+            <span class="error">{{editPassword.errors.confirmPassword}}</span>
+            <input type="password"
+                   class="form-control"
+                   ng-model="editPassword.confirmPassword"
+                   placeholder="enter new password again"
+                   ng-change="validateNewConfirmPassword()"
+                   ng-focus="validateNewConfirmPassword()" />
+            <br />
+
+            <input type="button"
+                   class="btn btn-default btn-primary"
+                   value="Save"
+                   ng-click="changePassword()" />
+            <br />
+        </div>
+    </div>
+
+</div>
