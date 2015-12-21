@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login Page</title>
+    <script src="../js/angular.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/login.js"></script>
+    <link href="../css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../css/nav-bar.css" rel="stylesheet" type="text/css" />
+    <link href="../css/login.css" rel="stylesheet" type="text/css" />
+</head>
+<body ng-app="loginApp">
+    <div class="container" ng-controller="logCtrl">
+        <div class="errDiv"><p>{{error}}</p></div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><b>Please Log In</b></h3>
+            </div>
+            <div class="panel-body">
+                <div class="username" style="margin:5px;" >
+                    <label for="unTxt" style="float:left">Username</label>
+                    <input type="text" class="form-control" ng-model="unTxt" style="float:left" placeholder="Username"/>
+                </div>
+                <div class="pwd" style="clear:both; margin:5px; padding-top:5px;">
+                    <label for="pwTxt" style="float:left">Password</label>
+                    <input type="password" placeholder="Password" class="form-control" ng-model="pwTxt" style="float:left"/>
+                </div>
+                <div style="clear:both; text-align:left; margin:5px; padding-top:5px;">Not a member yet? <a href="register.html">Sign Up</a> here</div>
+                <button class="btn btn-default logBtn" id="getIn"  style="margin-top:8px;"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;<b>Log In</b></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

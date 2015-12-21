@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Other Profile</title>
+    <script src="../js/angular.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/othprofile.js"></script>
+    <link href="../css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container" >
+        <div class="personalInfo"style="float: left;max-height:100%; width:75%">
+            <h2 id="who"></h2>
+            <h4 id="whoun"></h4>
+            <h4 id="mai"></h4>
+        </div>
+        <div class="socialDiv" style="float: left;max-height:100%; width:25%; padding-top:70px;">
+            <button class="btn btn-success" id="follow" title="Follow">
+                <b>Follow this User</b>
+            </button>
+            <button class="btn btn-disabled" id="following" title="Following this user" style="display:none;">
+                <b>Following</b>
+            </button>
+        </div>
+        <div style="clear:both;"></div>
+        <hr />
+        <div class="likes" >
+            <h2>My bookmarks</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>
+                            <h4><b>App type</b></h4>
+                        </td>
+                        <td>
+                            <h4><b>Bookmark</b></h4>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody class="bookmark">
+                    <tr class="blank">
+                        <td class="favof"></td>
+                        <td class="favwhat"></td>
+                        <!--<td>
+                        <button class="btn btn-danger rFav" title="Remove"><span class="glyphicon glyphicon-remove "></span></button>
+                    </td>-->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr />
+        <div class="followingList">
+            <h2>Following</h2>
+            
+        </div>
+
+        <div class="followedbyList">
+            <h2>Followed By</h2>
+            
+        </div>
+    </div>
+</body>
+</html>

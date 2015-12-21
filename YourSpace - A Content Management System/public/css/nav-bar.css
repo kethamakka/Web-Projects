@@ -1,0 +1,62 @@
+﻿body {
+    padding-top: 50px;
+}
+
+.navbar {
+    padding-right: 25px;
+    padding-top:5px;
+    padding-left:5px;
+    padding-bottom:5px;
+}
+
+.navbar .addBtn {
+    float:right;
+}
+
+.navbar  .toolbar{
+    margin-left:300px;
+    float:left;
+}
+
+.navbar  .toolbar .btn{
+    margin-left:15px;
+    margin-right:15px;
+}
+
+.navbar .name{
+    max-width:30%;
+    float:left;
+    margin-left:50px;
+    font: 200 25px 'Great Vibes', Helvetica, sans-serif;
+    color: #fff;
+    text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
+    margin-top:7px; 
+}
+
+    .navbar #findPpl {
+        padding:0px;
+    }
+
+.navbar #text, .brand {
+    font: 400 28px 'Great Vibes', Helvetica, sans-serif;
+    color: #fff;
+    text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
+    margin-top:7px; 
+    float:left;       
+}
+
+
+.navbar .btn {
+    margin-top:3px;
+    float:left;
+    margin-left:10px;
+}
+
+.brand {
+margin-left:50px;
+font-size:28px !important;
+}
+
+.glyphicon {
+    font-size:1.2em;
+}

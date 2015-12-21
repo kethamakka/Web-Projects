@@ -1,0 +1,42 @@
+﻿body {
+    
+}
+
+.panel-default > .panel-heading{
+    background-color : rgb(34, 34, 34);
+}
+
+.panel-default > .panel-heading .panel-title{
+    color : #fff;
+}
+
+.panel-default {
+    width:400px;
+    height:auto;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-200px;
+    margin-top:-175px;
+    text-align:center;
+}
+
+.logBtn {
+    background-color: rgb(34, 34, 34);
+    color: #fff;
+}
+
+.panel-default a:hover {
+    color:orangered !important;
+}
+
+a, u {
+    text-decoration:none !important; 
+}
+
+.errDiv {
+    padding-left:380px;
+    color:orangered;
+    font-size:medium;
+    font-weight:600;
+}

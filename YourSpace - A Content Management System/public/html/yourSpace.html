@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Add a tile</title>
+    <script src="../js/angular.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/time.js"></script>
+    <script src="../js/add-tile-exp.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/register.js"></script>
+    <script src="../js/load.js"></script>
+    <script src="../js/favorites.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/findPpl.js"></script>
+    <script src="../js/profiletrig.js"></script>
+    <link href="../css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../css/time.css" rel="stylesheet" type="text/css" />
+    <link href="../css/tile.css" rel="stylesheet" type="text/css" />
+    <link href="../css/socTile.css" rel="stylesheet" type="text/css" />
+    <link href="../css/nav-bar.css" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet" type="text/css">
+    
+   
+    
+</head>
+
+<body ng-app="myTime" >
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="brand">Your Space</div>
+        <div class="toolbar">
+            <button class="btn btn-default" id="logout" title="Log Out">
+                <span class="glyphicon  glyphicon-log-out"></span>
+            </button>
+            <button class="btn btn-default profilepage" title="Profile">
+                <span class="glyphicon glyphicon-user "></span>
+            </button>
+            <!--<img title="Profile" class="profilepage" src="../images/icons/profile.PNG" height="41" width="50"/>-->
+            <button class="btn btn-default" id="favorites" title="Favorites">
+                <span class="glyphicon glyphicon-star"></span>
+            </button>
+            <button class="btn btn-default" id="findPpl" title="Find Friends">
+                <span><img src="../images/icons/group.jpg" height="33" width="43"/></span>
+            </button>
+        </div>
+
+        <div class="addBtn">
+            <div id="text">Add a tile here</div>
+            <button id="addTile" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </div>
+    </nav>
+    <div   class="container">
+        <div ng-controller="timeController" class="clock">
+            <h3 style="color:#fff;">{{clock | date:'mediumDate'}}</h3>   
+            <h3 ng-model="am" ng-init="am = 0" ng-hide="am" ng-dblclick="changeType()"title="Double click on this" style="color:#fff;"><b>{{clock | date:'shortTime'}}</b></h3> 
+            <h3 ng-show="am" ng-dblclick="changeTf()"title="Double click on this" style="color:#fff;"><b>{{clock | date:'HH:mm'}}</b></h3> 
+        </div>
+        <div class="template" id="dummy">
+            <div class="header">
+                <div class="title">
+                    <span>Pick a category for this tile</span>
+                </div>
+                <button style="padding:3px; margin-top:2px; display:none" class="btn btn-danger del"><span class="glyphicon glyphicon-remove"></span></button>
+            </div>
+            <div class="cont-contain">
+                <div class="content">
+                    <div class="grid">
+                        <div class="grow" id="r1">
+                            <div class="gcol" id="c11">
+                                <button class="btn btn-default" id="setGoogle">Google</button>
+                            </div>
+                            <div class="gcol" id="c12">
+                                <button class="btn btn-default" id="setWeather" >Weather</button>
+                            </div>
+                            <div class="gcol" id="c13">
+                                <button class="btn btn-default" id="setYT">Youtube</button>
+                                
+                            </div>
+                        </div>
+                        <div class="grow" id="r2">
+                            <div class="gcol" id="c21">
+                                <button class="btn btn-default" id="setMaps">Maps</button>
+                            </div>
+                            <div class="gcol" id="c22">
+                                <button class="btn btn-default" id="setDir">Directions</button>
+                            </div>
+                            <div class="gcol" id="c23">
+                                <button class="btn btn-default" id="setDict">Dictionary</button>
+                            </div>
+                        </div>
+                        <div class="grow" id="r3">
+                            <div class="gcol" id="c31">
+                                
+                            </div>
+                            <div class="gcol" id="c32">
+                                
+                            </div>
+                            <div class="gcol" id="c33">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div  class="empty" ></div>
+            <div class="tile-footer" style="display:none">
+                <button  class="btn btn-primary" id="fav"><span class="glyphicon glyphicon-heart">  </span>&nbsp<span><b>Favs</b></span></button>
+                <div class="down-foot"></div>
+            </div>
+        </div>
+        
+        <!--Google Template -->
+
+        <div class="googleTemplate" id="gTemp" style=" display: none"> 
+            <div class="banner img-responsive center-block" style="margin-bottom:5px">
+                <img src="../images/banners/gBanner.jpg" width:200 height:150/>
+            </div>
+            <div class="gctrls" style=" text-align:center">
+                <input type="text"  class="form-control" id="g-it" placeholder="Search Google . . ." style="margin-bottom:5px;">
+                <button class="btn btn-info" id="g-srch" style="width:100%"><b>Search</b></button>
+            </div>
+        </div>
+
+        <!--Weather Template -->
+
+        <div class="weatherTemplate" style="display:none">
+            <div class="wctrls">
+                <input type="text"  class="form-control" id="w-at" placeholder="Weather at . . ." style="margin-bottom:5px; margin-right:5px; float:left; width:50%">
+                <button class="btn btn-info" id="wSrch" style="width:37%; float:left"><b>Search</b></button>
+                <button class="btn btn-danger glyphicon glyphicon-heart" id="wFav" style="width:10%; padding:4px; margin-left:3px; float:left"></button>
+            </div>
+            <div id="weather"style="text-align:center; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color:white; background-color:rgb(23, 72, 156); clear:both; padding:10px; display:none;"></div>
+        </div>
+
+        <!--Dictionary Template -->
+
+        <div class="dictTemplate" style="display:none">
+            <div class="dctrls">
+                <input type="text" id="dTxt" class="form-control" style="width:50%; margin-right:5px; float:left;" />
+                <button class="btn btn-info" id="dSrch" style="width:37%; float:left">Fetch</button>
+                <button class="btn btn-danger glyphicon glyphicon-heart" id="dictFav" style="width:10%; padding:4px; margin-left:3px; float:left"></button>
+            </div>
+            <div id="rPanel" style="clear:both">
+                    <ul class="list-group drendedr" style="margin:5px;list-style:none"></ul>
+            </div>
+        </div>
+
+        <!--Maps Template -->
+
+        <div class="mapsTemplate" style="display:none">
+            <div class="mctrls">
+                <input type="text"  class="form-control" id="loTxt" placeholder="Search a location . . ."  style="margin-bottom:5px; width:50%; float:left;">
+                <button class="btn btn-info" id="loSrch" style="width:37%; float:left;"><b>Locate</b></button>
+                <button class="btn btn-danger glyphicon glyphicon-heart" id="loFav" style="width:10%; padding:4px; margin-left:3px; float:left"></button>
+            </div>
+            <div id="map" class="embed-responsive embed-responsive-4by3" style="clear:both;">
+                <iframe
+                    class="embed-responsive-item"
+                    frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDA7mzRWIGOnQbvyU71Kc-oT2Li3CRan20
+                    &q=Northeastern+Uiversity,Boston+MA">
+                </iframe>
+            </div>
+        </div>
+
+        <!--Directons Mode Template -->
+
+        <div class="dirTemplate" style="display:none">
+            <div class="dctrls">
+                <input type="text"  class="form-control"  id="dirSrc" placeholder="Origin . . ."  style="margin-bottom:5px; width:50%; float:left;">
+                <input type="text"  class="form-control" id="dirDest" placeholder="Destination . . ."  style="margin-bottom:5px; width:50%; float:left;">
+                <button class="btn btn-info" id="dirSrch" style="width:100%; clear:both; margin-bottom:10px;" ><b>Get Directions</b></button>
+            </div>
+            <div id="dirMap" class="embed-responsive embed-responsive-4by3" style="clear:both;">
+                <iframe
+                    class="embed-responsive-item"
+                    frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyDA7mzRWIGOnQbvyU71Kc-oT2Li3CRan20&origin=Boston&destination=Los+Vegas&avoid=tolls|highways">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Warning -->
+
+        <div class="warning">
+            <div id="msg-head">
+                <p id="msg-title">Warning</p>
+            </div>
+            <br />
+            <div class="msg"><h4><b>Multiple instances not allowed for this</b></h4></div>
+            <br />
+            <button class="btn btn-danger" id="warning">OK</button>
+        </div>
+        <!-- Socia Temps -->
+        <div class="socTile notify" style="display:none;">
+            <div class="socHeader">
+                <div class="socTitle">
+                    <span>Favorites</span>
+                </div>
+                <button style="padding:3px; margin-top:2px;" class="btn btn-danger" id="ndel"><span class="glyphicon glyphicon-remove"></span></button>
+            </div>
+            <div class="ncont-contain">
+                <div class="ncontent">
+                    <ul class="list-group render" style="margin:5px;list-style:none"></ul>
+                </div>
+            </div>
+            <div  class="empty" ></div>
+        </div>
+        
+        <div class="socTile friends" style="display:none;">
+            <div class="socHeader">
+                <div class="socTitle">
+                    <span>Friends</span>
+                </div>
+                <button style="padding:3px; margin-top:2px;" class="btn btn-danger pull-right" id="fdel"><span class="glyphicon glyphicon-remove"></span></button>
+            </div>
+            <div class="fcont-contain">
+                <div class="fcontent">
+                    <ul class="list-group frender" style="margin:5px;list-style:none"></ul>
+                </div>
+            </div>
+            <div  class="empty" ></div>
+        </div>
+        <!--Youtube Template -->
+
+        <div class="ytTemplate" style="display:none">
+            <div class="yctrls">
+                <input type="text"  class="form-control" id="yTxt" placeholder="Search a video. . ." style="margin-bottom:5px; margin-right:5px; width:50%; float:left;">
+                <button class="btn btn-info" id="ySrch" style="width:37%; float:left;"><b>Search</b></button>
+                <button class="btn btn-danger glyphicon glyphicon-heart" id="youFav" style="width:10%; padding:4px; margin-left:3px; float:left"></button>
+            </div>
+            <div id="video" class="embed-responsive embed-responsive-4by3" style="clear:both;">
+                <iframe id="ytplayer" type="text/html" class="embed-responsive-item"
+                    src="http://www.youtube.com/embed?listType=search&list=cinema paradiso"
+                frameborder="0"/>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!--<div id ="documentation">
+        <h3>About the experiment</h3>
+        <p>The experiment is one of the key aspects of the project. The "plus" glyphicon in the "navigation bar" will allow users to add a tile to the dashboard. The tile is added at an absolute position but the tile is draggable thus making the dashboard customizable.</p>
+        <h3>Code snippet</h3>
+        <code>
+            $(".container").append(tile);<br />
+            tile<br />
+            &nbsp;&nbsp;.draggable()<br />
+            &nbsp;&nbsp;.resizable()<br />
+            &nbsp;&nbsp;.css({<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;"position": "absolute",<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;"left" : x,<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;"top" : y})<br />
+        </code>
+        <p>Source Code || <a href="http://net4.ccs.neu.edu/home/vijayk/fileview/Default.aspx?~/experiments/project-beginnings/Add-a-tile.html">HTML Source</a> || <a href="http://net4.ccs.neu.edu/home/vijayk/fileview/Default.aspx?~/experiments/project-beginnings/add-tile.js">JS Source</a> || <a href="http://net4.ccs.neu.edu/home/vijayk/fileview/Default.aspx?~/experiments/project-beginnings/nav-bar.css">css Source</a></p>
+    </div>-->

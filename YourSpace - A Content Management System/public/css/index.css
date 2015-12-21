@@ -1,0 +1,24 @@
+﻿body {
+    background:url("../images/banners/homepage.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+     background-size: cover;
+}
+
+.navbar .btn {
+    min-width:80px;
+}
+
+.navbar a {
+    color:black;
+    font-size:15px;
+}
+
+.navbar a:hover {
+    color:orangered !important;
+}
+
+a, u {
+    text-decoration:none !important; 
+}

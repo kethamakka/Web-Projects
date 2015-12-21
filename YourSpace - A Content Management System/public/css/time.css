@@ -1,0 +1,8 @@
+﻿@font-face {
+    font-family: clock-font;
+    src : url(TickingTimebombBB_ital.ttf) format('truetype');
+}
+
+.class {
+    font-family:clock-font;
+}
